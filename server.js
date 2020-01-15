@@ -6,4 +6,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (req, res)=> {
+    res.send(database)
+})
+
+app.post('/api', (req, res)=>{
+    
+})
+
+
 app.listen(3001);
