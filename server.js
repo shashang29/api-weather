@@ -17,7 +17,6 @@ app.post('/api', (req, res) => {
         .catch(err => res.status(400).json('unable to work with api'))
 })
 
-
-app.listen(3001, () => {
-    console.log('app is running on 3001')
-});
+const port = process.env.PORT || 3001
+app.listen(port, () => console.log(`app is running on ${port}`)
+);
