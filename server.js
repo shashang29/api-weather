@@ -1,18 +1,27 @@
 const express = require('express');
 const cors= require('cors');
+const fetch = require('node-fetch');
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res)=> {
-    res.send(database)
-})
+
+
+
+const apiKey = '';
 
 app.post('/api', (req, res)=>{
-    
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${req.body.input}&units=metric&APPID=fb07371e9e8f6a6c53f85498e92dcea1`)
+    .then(data=>{
+        res.json(data);
+    })
+        .then(json => console.log(json))
+    .catch(err=> res.status(400).json('unable to work with api'))
 })
 
 
-app.listen(3001);
+app.listen(3001, ()=>{
+    console.log('app is running on 3001')
+});
