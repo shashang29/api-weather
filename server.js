@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-
+app.get('/', (req,res)=>{res.send('it is working')});
 
 const apiKey = 'fb07371e9e8f6a6c53f85498e92dcea1';
 app.post('/api', (req, res) => {
